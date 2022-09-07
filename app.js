@@ -2,13 +2,15 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const mongoose = require('mongoose')
+const dotenv = require('dotenv')
 const _ = require('lodash')
+dotenv.config()
 app.use(bodyParser.urlencoded({
   extended: true
 }))
 app.set('view engine', 'ejs');
 const port = 3000
-mongoose.connect('mongodb://localhost:27017/todoListDB', {
+mongoose.connect(`mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.gbmtnno.mongodb.net/todoListDB`, {
   useNewUrlParser: true
 })
 // ---------------------------------itemSchema
