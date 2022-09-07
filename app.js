@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }))
 app.set('view engine', 'ejs');
-const port = 3000
+
 mongoose.connect(`mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.gbmtnno.mongodb.net/todoListDB`, {
   useNewUrlParser: true
 })
@@ -151,6 +151,12 @@ app.post('/delete', function(req, res) {
 
 
 // ------------------------------listen
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
 app.listen(port, function() {
-  console.log('running ' + port)
+  console.log('Server has started Successfully! ')
 })
