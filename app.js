@@ -13,9 +13,7 @@ app.set('view engine', 'ejs');
 mongoose.connect(`mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.gbmtnno.mongodb.net/todoListDB`, {
   useNewUrlParser: true
 })
-// mongoose.connect(`mongodb+srv://admin:B12RMR9k5MJE5wtC@cluster0.gbmtnno.mongodb.net/todoListDB`, {
-//   useNewUrlParser: true
-// })
+
 // ---------------------------------itemSchema
 const itemsSchema = new mongoose.Schema({
   name: String,
